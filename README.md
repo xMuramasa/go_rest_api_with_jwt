@@ -1,12 +1,10 @@
 # GO REST API
 
-## Rest api test with go
+## Docker Rest API Test with Go
 
 ### Requirements
 
-- go
-- gin package
-- pq package
+- docker
 
 ### Description
 
