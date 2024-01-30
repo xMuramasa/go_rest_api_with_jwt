@@ -1,0 +1,28 @@
+version: '3'
+services:
+  go-api:
+    container_name: go-api
+    image: xmuramasa/go-rest-api-test:1.0.0
+    build: .
+    environment:
+      - DATABASE_URL=host=postgres port=5432 user=${DB_USER} password=${DB_PASSWORD} dbname=postgres sslmode=disable
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: postgres
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+    - '5432:5432'
+    volumes:
+    - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

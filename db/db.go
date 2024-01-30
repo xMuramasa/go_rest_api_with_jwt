@@ -2,24 +2,15 @@ package db
 
 import (
 	"database/sql"
-	"fmt"
+	"os"
 
 	_ "github.com/lib/pq"
 )
 
 var DB *sql.DB
 
-const (
-	host     = "localhost"
-	port     = 5432
-	user     = "postgres"
-	password = "mysecretpassword"
-	dbname   = "golang-test"
-)
-
 func InitDB() {
-	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
-		host, port, user, password, dbname)
+	psqlInfo := os.Getenv("DATABASE_URL")
 
 	var err error
 

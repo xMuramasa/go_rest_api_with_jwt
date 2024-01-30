@@ -1,6 +1,5 @@
 POST http://localhost:8080/signup
 content-type: application/json
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQHRlc3QuY29tIiwiZXhwIjoxNzA2NTAzOTcwLCJpZCI6MH0.VQvseGj8fT71JVgD4L9OZnCXIYandxMvWhK9sCX-cnk
 
 {
     "email": "user2@test.com",
